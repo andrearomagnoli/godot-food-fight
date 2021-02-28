@@ -24,6 +24,6 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1 )
 
 [node name="ProjectileCooldown" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
 one_shot = true
 [connection signal="timeout" from="ProjectileCooldown" to="." method="_on_ProjectileCooldown_timeout"]

@@ -4,13 +4,13 @@
 [ext_resource path="res://Projectiles/Projectile.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CylinderShape" id=1]
-radius = 0.115463
-height = 0.55039
+radius = 0.21232
+height = 0.882072
 
 [node name="Milkshake" instance=ExtResource( 2 )]
 
 [node name="MeshInstance" parent="." index="0"]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.18728, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.288523, 0 )
 mesh = ExtResource( 1 )
 material/1 = null
 
