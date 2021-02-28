@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Characters/Players/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Characters/Players/Armatures/Armature-M.tscn" type="PackedScene" id=3]
+[ext_resource path="res://default_env.tres" type="Environment" id=4]
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 2
@@ -17,4 +18,5 @@ transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08
 
 [node name="Camera" type="Camera" parent="." index="3"]
 transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 2, -4 )
+environment = ExtResource( 4 )
 doppler_tracking = 2
