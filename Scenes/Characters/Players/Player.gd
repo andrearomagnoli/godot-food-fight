@@ -1,4 +1,4 @@
-extends KinematicBody
+extends "res://Scenes/Characters/Character.gd"
 
 const SPEED = 10
 const UP = Vector3(0,1,0)
@@ -25,6 +25,9 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		rotation = h_camera_rotation(-event.relative.x/mouse_sensitivity)
 		$Camera.rotation = v_camera_rotation(-event.relative.y/mouse_sensitivity)
+	
+	if Input.is_action_just_pressed("fire"):
+		fire()
 
 
 func move():
@@ -32,8 +35,8 @@ func move():
 	var direction = Vector3.ZERO
 	var camera_xform = $Camera.global_transform
 	
-	direction -= camera_xform.basis.z.normalized() * movement_2d_dir.x
-	direction += camera_xform.basis.x.normalized() * movement_2d_dir.y
+	direction -= camera_xform.basis.z.normalized() * movement_2d_dir[0]
+	direction += camera_xform.basis.x.normalized() * movement_2d_dir[1]
 	direction.y = 0
 	
 	motion = direction

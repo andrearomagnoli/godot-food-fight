@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="SphereMesh" id=1]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="SphereShape" id=2]
+radius = 0.3
+
+[sub_resource type="Animation" id=3]
+resource_name = "Remove"
+length = 5.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="Projectile" type="RigidBody"]
+
+[node name="RigidBody" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 2 )
+
+[node name="Autoremove" type="AnimationPlayer" parent="."]
+autoplay = "Remove"
+anims/Remove = SubResource( 3 )
