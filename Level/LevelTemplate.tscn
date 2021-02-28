@@ -20,6 +20,8 @@ shape = SubResource( 1 )
 
 [node name="Furniture" type="Node" parent="."]
 
+[node name="Walls" type="Node" parent="."]
+
 [node name="Lightning" type="Node" parent="."]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Lightning"]
@@ -27,4 +29,4 @@ transform = Transform( 0.707107, -2.10734e-08, 0.707107, -0.5, 0.707107, 0.5, -0
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 8, 0.25, -9.98115 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0.25, 0 )
