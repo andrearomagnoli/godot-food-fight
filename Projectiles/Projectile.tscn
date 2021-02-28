@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://SFX/Explosion2.wav" type="AudioStream" id=1]
 
 [sub_resource type="SphereMesh" id=1]
 radius = 0.3
 height = 0.6
 
 [sub_resource type="SphereShape" id=2]
-radius = 0.3
+radius = 0.2
 
 [sub_resource type="Animation" id=3]
 resource_name = "Remove"
@@ -26,8 +28,9 @@ tracks/0/keys = {
 }
 
 [node name="Projectile" type="RigidBody"]
+continuous_cd = true
 
-[node name="RigidBody" type="MeshInstance" parent="."]
+[node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
 material/0 = null
 
@@ -37,3 +40,10 @@ shape = SubResource( 2 )
 [node name="Autoremove" type="AnimationPlayer" parent="."]
 autoplay = "Remove"
 anims/Remove = SubResource( 3 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 1 )
+max_db = 2.0
+pitch_scale = 1.5
+autoplay = true
+doppler_tracking = 2

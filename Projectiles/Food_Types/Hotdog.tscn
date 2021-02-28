@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Ammo/models/Hotdog.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://Projectiles/Projectile.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.143406
+height = 0.677307
+
+[node name="Hotdog" instance=ExtResource( 2 )]
+
+[node name="MeshInstance" parent="." index="0"]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.0267244, 0 )
+mesh = ExtResource( 1 )
+
+[node name="CollisionShape" parent="." index="1"]
+shape = SubResource( 1 )
