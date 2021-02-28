@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://SFX/Explosion2.wav" type="AudioStream" id=1]
+[ext_resource path="res://Projectiles/Projectile.gd" type="Script" id=2]
 
 [sub_resource type="SphereMesh" id=1]
 radius = 0.3
@@ -29,6 +30,9 @@ tracks/0/keys = {
 
 [node name="Projectile" type="RigidBody"]
 continuous_cd = true
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
@@ -47,3 +51,4 @@ max_db = 2.0
 pitch_scale = 1.5
 autoplay = true
 doppler_tracking = 2
+[connection signal="body_shape_entered" from="." to="." method="_on_Projectile_body_shape_entered"]
