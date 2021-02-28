@@ -5,6 +5,7 @@
 [ext_resource path="res://Scenes/Characters/Players/Armatures/Armature-M.tscn" type="PackedScene" id=3]
 
 [node name="Player" instance=ExtResource( 1 )]
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="MeshInstance" parent="." index="0"]

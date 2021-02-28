@@ -76,6 +76,6 @@ func h_camera_rotation(camera_rotation):
 
 func v_camera_rotation(camera_rotation):
 	var rot = $Camera.rotation + Vector3(camera_rotation,0,0)
-	rot.x = clamp(rot.x, -PI/8, PI/20)
+	rot.x = clamp(rot.x, -PI/8, PI/8)
 	return rot
 
