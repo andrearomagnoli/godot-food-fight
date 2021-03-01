@@ -166,44 +166,12 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -13, 0.
 [node name="Robot" parent="Robots" index="0" instance=ExtResource( 7 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 14.954, 0, -5.52724 )
 
-[node name="RobotArmature" parent="Robots/Robot" index="4"]
-bones/1/bound_children = [ NodePath("BoneAttachment002") ]
-bones/2/bound_children = [ NodePath("BoneAttachment011") ]
-bones/7/bound_children = [ NodePath("BoneAttachment004") ]
-bones/8/bound_children = [ NodePath("BoneAttachment009") ]
-bones/9/bound_children = [ NodePath("BoneAttachment") ]
-bones/10/bound_children = [ NodePath("BoneAttachment3") ]
-bones/22/bound_children = [ NodePath("BoneAttachment010") ]
-bones/23/bound_children = [ NodePath("BoneAttachment001") ]
-bones/24/bound_children = [ NodePath("BoneAttachment2") ]
-bones/37/bound_children = [ NodePath("BoneAttachment005") ]
-bones/38/bound_children = [ NodePath("BoneAttachment007") ]
-bones/39/bound_children = [ NodePath("BoneAttachment003") ]
-bones/41/bound_children = [ NodePath("BoneAttachment006") ]
-bones/42/bound_children = [ NodePath("BoneAttachment008") ]
-
 [node name="TranslationAnimation" parent="Robots/Robot" index="6"]
 autoplay = "Movement"
 anims/Movement = SubResource( 1 )
 
 [node name="Robot2" parent="Robots" index="1" instance=ExtResource( 7 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 17.825, 0, -8 )
-
-[node name="RobotArmature" parent="Robots/Robot2" index="4"]
-bones/1/bound_children = [ NodePath("BoneAttachment002") ]
-bones/2/bound_children = [ NodePath("BoneAttachment011") ]
-bones/7/bound_children = [ NodePath("BoneAttachment004") ]
-bones/8/bound_children = [ NodePath("BoneAttachment009") ]
-bones/9/bound_children = [ NodePath("BoneAttachment") ]
-bones/10/bound_children = [ NodePath("BoneAttachment3") ]
-bones/22/bound_children = [ NodePath("BoneAttachment010") ]
-bones/23/bound_children = [ NodePath("BoneAttachment001") ]
-bones/24/bound_children = [ NodePath("BoneAttachment2") ]
-bones/37/bound_children = [ NodePath("BoneAttachment005") ]
-bones/38/bound_children = [ NodePath("BoneAttachment007") ]
-bones/39/bound_children = [ NodePath("BoneAttachment003") ]
-bones/41/bound_children = [ NodePath("BoneAttachment006") ]
-bones/42/bound_children = [ NodePath("BoneAttachment008") ]
 
 [node name="TranslationAnimation" parent="Robots/Robot2" index="6"]
 autoplay = "Movement"
