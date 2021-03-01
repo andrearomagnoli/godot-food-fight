@@ -6,3 +6,6 @@ params_cull_mode = 2
 albedo_color = Color( 0.698039, 0.827451, 0.768628, 0.685059 )
 metallic = 0.33
 roughness = 0.0
+distance_fade_mode = 1
+distance_fade_min_distance = 5.0
+distance_fade_max_distance = 10.0
