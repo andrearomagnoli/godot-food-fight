@@ -11,11 +11,13 @@ func _ready():
 	randomize()
 
 
-func try_to_fire():
-	if can_fire:
+func try_to_fire(ammo):
+	if can_fire and ammo > 0:
 		fire()
 		can_fire = false
 		$ProjectileCooldown.start()
+		ammo -= 1
+	return ammo
 
 
 func fire():

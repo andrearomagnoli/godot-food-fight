@@ -8,8 +8,11 @@ const BLEND_TO_IDLE = 0.1
 
 var motion = Vector3()
 var movement_state = 0  # idle:0, run:1
+var ammo = 0
+var can_refill = false
 
 export var mouse_sensitivity = 1200
+export var max_ammo = 5
 
 
 func _ready():
@@ -27,7 +30,8 @@ func _input(event):
 		$Camera.rotation = v_camera_rotation(-event.relative.y/mouse_sensitivity)
 	
 	if Input.is_action_just_pressed("fire"):
-		try_to_fire()
+		ammo = try_to_fire(ammo)
+		update_gui()
 
 
 func move():
@@ -79,3 +83,31 @@ func v_camera_rotation(camera_rotation):
 	rot.x = clamp(rot.x, -PI/8, PI/8)
 	return rot
 
+
+func _on_RefillTimer_timeout():
+	ammo += 1
+	update_gui()
+	if check_ammo():
+		$RefillTimer.start()
+
+
+func check_ammo():
+	if ammo < max_ammo:
+		return true
+
+
+func refill_enter():
+	if check_ammo():
+		$RefillTimer.start()
+		can_refill = true
+		$Harp.play()
+
+
+func refill_exit():
+	$RefillTimer.stop()
+	can_refill = false
+	$Harp.stop()
+
+
+func update_gui():
+	get_node("GUI/Label").text = str(ammo)
