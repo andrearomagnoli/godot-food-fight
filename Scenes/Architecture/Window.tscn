@@ -15,6 +15,7 @@ material/3 = null
 material/4 = null
 
 [node name="StaticBody" type="StaticBody" parent="."]
+collision_mask = 2147483679
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 1 )
