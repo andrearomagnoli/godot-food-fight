@@ -31,7 +31,11 @@ doppler_tracking = 2
 [node name="RefillTimer" type="Timer" parent="." index="6"]
 one_shot = true
 
-[node name="GUI" type="CanvasLayer" parent="." index="7"]
+[node name="FireTImer" type="Timer" parent="." index="7"]
+wait_time = 0.2
+one_shot = true
+
+[node name="GUI" type="CanvasLayer" parent="." index="8"]
 
 [node name="Label" type="Label" parent="GUI" index="0"]
 anchor_left = 1.0
@@ -48,7 +52,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Harp" type="AudioStreamPlayer" parent="." index="8"]
+[node name="Harp" type="AudioStreamPlayer" parent="." index="9"]
 stream = ExtResource( 7 )
 volume_db = -10.0
 [connection signal="timeout" from="RefillTimer" to="." method="_on_RefillTimer_timeout"]
+[connection signal="timeout" from="FireTImer" to="." method="_on_FireTImer_timeout"]

@@ -5,11 +5,16 @@ const UP = Vector3(0,1,0)
 const MIN_BLEND_SPEED = 0.125  #  min movem before we start blending animations
 const BLEND_TO_RUN = 0.075
 const BLEND_TO_IDLE = 0.1
+const BLEND_TO_RELOAD = 0.1
+const BLEND_TO_FIRE = 0.4
+const ACTION_RESET_RATE = 0.05
 
 var motion = Vector3()
 var movement_state = 0  # idle:0, run:1
+var action_state = 0 # throw:-1, idle/move:0, reload:+1
 var ammo = 0
 var can_refill = false
+var is_firing = false
 
 export var mouse_sensitivity = 1200
 export var max_ammo = 5
@@ -31,6 +36,8 @@ func _input(event):
 	
 	if Input.is_action_just_pressed("fire"):
 		ammo = try_to_fire(ammo)
+		is_firing = true
+		$FireTImer.start()
 		update_gui()
 
 
@@ -70,8 +77,16 @@ func animate():
 	else:
 		movement_state -= BLEND_TO_IDLE
 	movement_state = clamp(movement_state, 0, 1)
+	
+	if is_firing:
+		action_state -= BLEND_TO_FIRE
+	elif can_refill:
+		action_state += BLEND_TO_RELOAD
+	action_state = clamp(action_state, -1, 1)
+	action_state = lerp(action_state, 0, ACTION_RESET_RATE)
 
 	$Armature/AnimationTree.set("parameters/Move/blend_amount", movement_state)
+	$Armature/AnimationTree.set("parameters/Action/blend_amount", action_state)
 
 
 func h_camera_rotation(camera_rotation):
@@ -89,6 +104,10 @@ func _on_RefillTimer_timeout():
 	update_gui()
 	if check_ammo():
 		$RefillTimer.start()
+
+
+func _on_FireTImer_timeout():
+	is_firing = false
 
 
 func check_ammo():
