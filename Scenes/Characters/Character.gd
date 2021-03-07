@@ -12,7 +12,6 @@ var lives = 3
 
 
 func _ready():
-	character_type = CHARACTER_TYPE.player
 	food_types = file_grabber.get_files("res://Projectiles/Food_Types/")
 	randomize()
 
@@ -45,7 +44,7 @@ func hurt(fired_by):
 		lives -= 1
 		$HurtSFX.play()
 		check_lives()
-	update_lives()
+		update_lives()
 
 
 func check_lives():
@@ -53,12 +52,12 @@ func check_lives():
 		die()
 
 
-func update_lives():
+func die():
 	pass
 
 
-func die():
-	queue_free()
+func update_lives():
+	pass
 
 
 func _on_ProjectileCooldown_timeout():

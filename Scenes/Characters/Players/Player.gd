@@ -21,6 +21,7 @@ export var max_ammo = 5
 
 
 func _ready():
+	character_type = CHARACTER_TYPE.player
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	update_lives()
 
@@ -145,3 +146,7 @@ func refresh_refill_counter():
 func update_lives():
 	if character_type == CHARACTER_TYPE.player:
 		get_tree().call_group('GUI', 'update_lives', lives)
+
+
+func die():
+	get_tree().change_scene("res://Scenes/GUI/GameOver/GameOver.tscn")

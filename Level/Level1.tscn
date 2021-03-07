@@ -458,12 +458,44 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -13, 0.
 [node name="Robot" parent="Robots" index="0" instance=ExtResource( 7 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 12.5475, 0, -5.52724 )
 
+[node name="RobotArmature" parent="Robots/Robot" index="4"]
+bones/1/bound_children = [  ]
+bones/2/bound_children = [  ]
+bones/7/bound_children = [  ]
+bones/8/bound_children = [  ]
+bones/9/bound_children = [  ]
+bones/10/bound_children = [  ]
+bones/22/bound_children = [  ]
+bones/23/bound_children = [  ]
+bones/24/bound_children = [  ]
+bones/37/bound_children = [  ]
+bones/38/bound_children = [  ]
+bones/39/bound_children = [  ]
+bones/41/bound_children = [  ]
+bones/42/bound_children = [  ]
+
 [node name="TranslationAnimation" parent="Robots/Robot" index="6"]
 autoplay = "Movement"
 anims/Movement = SubResource( 2 )
 
 [node name="Robot2" parent="Robots" index="1" instance=ExtResource( 7 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 15.7161, 0, -8 )
+
+[node name="RobotArmature" parent="Robots/Robot2" index="4"]
+bones/1/bound_children = [  ]
+bones/2/bound_children = [  ]
+bones/7/bound_children = [  ]
+bones/8/bound_children = [  ]
+bones/9/bound_children = [  ]
+bones/10/bound_children = [  ]
+bones/22/bound_children = [  ]
+bones/23/bound_children = [  ]
+bones/24/bound_children = [  ]
+bones/37/bound_children = [  ]
+bones/38/bound_children = [  ]
+bones/39/bound_children = [  ]
+bones/41/bound_children = [  ]
+bones/42/bound_children = [  ]
 
 [node name="TranslationAnimation" parent="Robots/Robot2" index="6"]
 autoplay = "Movement"
