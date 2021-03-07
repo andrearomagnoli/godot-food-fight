@@ -22,11 +22,13 @@ export var max_ammo = 5
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	update_lives()
 
 
 func _physics_process(_delta):
 	move()
 	animate()
+	refresh_refill_counter()
 
 
 func _input(event):
@@ -129,4 +131,17 @@ func refill_exit():
 
 
 func update_gui():
-	get_node("GUI/Label").text = str(ammo)
+	get_tree().call_group('GUI', 'refresh_AmmoCount', ammo)
+
+
+func refresh_refill_counter():
+	if can_refill:
+		var refill_time_left = 1 - $RefillTimer.get_time_left()
+		get_tree().call_group('GUI', 'Refill', refill_time_left)
+	else:
+		get_tree().call_group('GUI', 'Refill', 0.0)
+
+
+func update_lives():
+	if character_type == CHARACTER_TYPE.player:
+		get_tree().call_group('GUI', 'update_lives', lives)

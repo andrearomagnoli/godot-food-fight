@@ -45,11 +45,16 @@ func hurt(fired_by):
 		lives -= 1
 		$HurtSFX.play()
 		check_lives()
+	update_lives()
 
 
 func check_lives():
 	if lives < 1:
 		die()
+
+
+func update_lives():
+	pass
 
 
 func die():

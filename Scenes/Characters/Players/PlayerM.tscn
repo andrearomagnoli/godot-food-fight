@@ -1,16 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Characters/Players/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Characters/Players/Armatures/Armature-M.tscn" type="PackedScene" id=3]
 [ext_resource path="res://default_env.tres" type="Environment" id=4]
-[ext_resource path="res://GUI/theme.tres" type="Theme" id=5]
-[ext_resource path="res://Fonts/Kenney Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://SFX/harp-glissando-up.wav" type="AudioStream" id=7]
-
-[sub_resource type="DynamicFont" id=1]
-size = 30
-font_data = ExtResource( 6 )
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 2
@@ -35,22 +30,7 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
-[node name="GUI" type="CanvasLayer" parent="." index="8"]
-
-[node name="Label" type="Label" parent="GUI" index="0"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -100.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = 56.0
-theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 1 )
-text = "0"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="GUI" parent="." index="8" instance=ExtResource( 5 )]
 
 [node name="Harp" type="AudioStreamPlayer" parent="." index="9"]
 stream = ExtResource( 7 )
