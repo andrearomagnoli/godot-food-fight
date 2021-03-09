@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/Characters/Players/Armatures/Armature-M.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Materials/DarkWood.material" type="Material" id=2]
+[ext_resource path="res://Materials/MetalDark.material" type="Material" id=3]
+[ext_resource path="res://Scenes/Customisation/CustomisationUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Customisation/Customisation.gd" type="Script" id=5]
+
+[sub_resource type="CylinderMesh" id=1]
+
+[sub_resource type="PlaneMesh" id=2]
+
+[sub_resource type="SphereMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+params_cull_mode = 1
+albedo_color = Color( 0.258824, 0, 0, 1 )
+
+[node name="Customisation" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="Scenary" type="Node" parent="."]
+
+[node name="Podium" type="MeshInstance" parent="Scenary"]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, -0.103432, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Floor" type="MeshInstance" parent="Scenary"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.20631, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 3 )
+
+[node name="Wall" type="MeshInstance" parent="Scenary"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="FillLight" type="SpotLight" parent="Lights"]
+transform = Transform( 0.5, 0.707107, -0.5, -0.5, 0.707107, 0.5, 0.707107, 0, 0.707107, -1.13853, 2.90864, 1.72549 )
+light_color = Color( 1, 0.756863, 0.470588, 1 )
+
+[node name="KeyLight" type="SpotLight" parent="Lights"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 2, 1.86032, 2.39477 )
+light_energy = 4.0
+
+[node name="BackLight" type="SpotLight" parent="Lights"]
+transform = Transform( -0.979159, 0.0581815, -0.194582, 9.33452e-08, 0.958088, 0.286474, 0.203095, 0.280504, -0.938121, -0.887867, 2.94571, -4 )
+light_color = Color( 0.14902, 0.247059, 0.886275, 1 )
+light_energy = 4.67
+
+[node name="Birdie" type="SpotLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.209772, -2.48099, -9.34723 )
+light_energy = 5.5
+spot_range = 13.1247
+spot_angle = 13.509
+
+[node name="Birdie2" type="SpotLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.43728, -2.48099, -9.09513 )
+light_energy = 5.5
+spot_range = 13.1247
+spot_angle = 13.509
+
+[node name="Birdie4" type="SpotLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.45847, -2.48099, -9.09513 )
+light_energy = 5.5
+spot_range = 13.1247
+spot_angle = 13.509
+
+[node name="Birdie3" type="SpotLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.43707, -2.48099, -8.2474 )
+light_energy = 5.5
+spot_range = 13.1247
+spot_angle = 13.509
+
+[node name="Birdie5" type="SpotLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.61371, -2.48099, -8.2474 )
+light_energy = 5.5
+spot_range = 13.1247
+spot_angle = 13.509
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Lights"]
+transform = Transform( 0.866025, 0.433013, -0.25, -0.12941, 0.677077, 0.724444, 0.482963, -0.595035, 0.642402, -4, 7.2574, 2 )
+light_energy = 0.15
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.993776, -0.1114, 0, 0.1114, 0.993776, 0, 0.65, 2.7 )
+current = true
+
+[node name="CustomisationUI" parent="." instance=ExtResource( 4 )]
+
+[node name="ArmatureM" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0 )
+[connection signal="item_selected" from="CustomisationUI/Controls/CharacterSelect" to="." method="_on_CharacterSelect_item_selected"]
+[connection signal="pressed" from="CustomisationUI/Controls/HBoxContainer/LeftButton" to="." method="change_material" binds= [ "Left" ]]
+[connection signal="pressed" from="CustomisationUI/Controls/HBoxContainer/RightButton" to="." method="change_material" binds= [ "Right" ]]
+[connection signal="pressed" from="CustomisationUI/Controls/HBoxContainer2/StartButton" to="." method="_on_StartButton_pressed"]
+
+[editable path="CustomisationUI"]
+
+[editable path="ArmatureM"]
