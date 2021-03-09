@@ -1,20 +1,21 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://GUI/theme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/Characters/Robot/Robot.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/GUI/GFX/blue_boxCheckmark.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/GUI/GFX/blue_button06.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/GUI/GameOver/GameOver.gd" type="Script" id=5]
+[ext_resource path="res://SFX/GameOver.ogg" type="AudioStream" id=6]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 38, 36 )
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 38, 36 )
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 49, 49 )
 
@@ -84,8 +85,66 @@ light_energy = 2.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 script = null
 
+[node name="RobotArmature" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot" index="4"]
+bones/1/bound_children = [ NodePath("BoneAttachment002") ]
+bones/2/bound_children = [ NodePath("BoneAttachment011") ]
+bones/7/bound_children = [ NodePath("BoneAttachment004") ]
+bones/8/bound_children = [ NodePath("BoneAttachment009") ]
+bones/9/bound_children = [ NodePath("BoneAttachment") ]
+bones/10/bound_children = [ NodePath("BoneAttachment3") ]
+bones/22/bound_children = [ NodePath("BoneAttachment010") ]
+bones/23/bound_children = [ NodePath("BoneAttachment001") ]
+bones/24/bound_children = [ NodePath("BoneAttachment2") ]
+bones/37/bound_children = [ NodePath("BoneAttachment005") ]
+bones/38/bound_children = [ NodePath("BoneAttachment007") ]
+bones/39/bound_children = [ NodePath("BoneAttachment003") ]
+bones/41/bound_children = [ NodePath("BoneAttachment006") ]
+bones/42/bound_children = [ NodePath("BoneAttachment008") ]
+
 [node name="AnimationPlayer" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="0"]
 autoplay = "Robot_ThumbsUp"
+
+[node name="BoneAttachment" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="1"]
+transform = Transform( -0.0564262, 0.0120857, -0.998333, 0.0680234, 0.99765, 0.00823249, 0.996087, -0.0674447, -0.0571156, 0.666745, 2.43728, -0.0168432 )
+
+[node name="BoneAttachment001" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="2"]
+transform = Transform( -0.059884, -0.0283931, 0.997801, -0.264981, 0.964185, 0.0115335, -0.962391, -0.263708, -0.0652628, -0.738989, 2.43851, -0.0168432 )
+
+[node name="BoneAttachment002" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="3"]
+transform = Transform( -1, 2.15749e-07, -2.93496e-07, 2.0612e-07, 0.999474, 0.0324216, 3.00337e-07, 0.0324217, -0.999474, 0.633527, 0.024694, -0.138034 )
+
+[node name="BoneAttachment003" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="4"]
+transform = Transform( -1, 1.64626e-06, -2.93497e-07, 1.63588e-06, 0.999474, 0.0324217, 3.46717e-07, 0.0324215, -0.999475, -0.640076, 0.024694, -0.138034 )
+
+[node name="BoneAttachment3" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="5"]
+transform = Transform( 0.0388434, -0.0122599, -0.99917, 0.000847305, 0.999925, -0.0122363, 0.999244, -0.000370596, 0.0388509, 1.32294, 2.43187, 0.0206985 )
+
+[node name="BoneAttachment2" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="6"]
+transform = Transform( 0.0357705, 0.0187618, 0.999184, -0.177214, 0.984097, -0.0121343, -0.983521, -0.176636, 0.0385265, -1.31296, 2.43187, 0.0206984 )
+
+[node name="BoneAttachment004" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="7"]
+transform = Transform( 0.999996, -5.63962e-05, 0.00280693, 0.00280538, -0.0187642, -0.99982, 0.000109056, 0.999824, -0.018764, 6.14762e-09, 3.03846, -0.0107013 )
+
+[node name="BoneAttachment005" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="8"]
+transform = Transform( 1, -5.21525e-07, -2.88221e-08, -6.37748e-08, -0.176683, 0.984268, -5.18403e-07, -0.984274, -0.176683, 0.630296, 1.5368, -0.0698894 )
+
+[node name="BoneAttachment006" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="9"]
+transform = Transform( 1, 4.47292e-07, -2.88221e-08, 1.07397e-07, -0.176683, 0.984268, 4.35164e-07, -0.984274, -0.176683, -0.643307, 1.5368, -0.0698895 )
+
+[node name="BoneAttachment007" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="10"]
+transform = Transform( 1, -2.54154e-07, 3.50088e-09, 4.47876e-08, 0.189744, 0.981834, -2.5019e-07, -0.98184, 0.189746, 0.630296, 0.935406, 0.0380651 )
+
+[node name="BoneAttachment008" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="11"]
+transform = Transform( 1, -2.01132e-07, -5.3216e-08, 9.04119e-08, 0.189744, 0.981834, -1.87384e-07, -0.98184, 0.189746, -0.643307, 0.935406, 0.038065 )
+
+[node name="BoneAttachment009" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="12"]
+transform = Transform( -0.0262237, 2.39866e-07, -0.999656, -0.999656, -2.22027e-06, 0.0262235, -2.91318e-06, 0.999999, 3.12459e-07, 0.582738, 2.43949, -0.0168432 )
+
+[node name="BoneAttachment010" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="13"]
+transform = Transform( -0.00985826, -2.69916e-07, 0.999951, 0.999951, 7.59959e-07, 0.00985831, -1.02818e-06, 1, 2.61236e-07, -0.636816, 2.43952, -0.0168431 )
+
+[node name="BoneAttachment011" parent="CenterContainer/VBoxContainer/CenterContainer/ViewportContainer/Viewport/Robot/RobotArmature" index="14"]
+transform = Transform( 1, 7.15256e-07, 0, 0, 0, -1, -7.15256e-07, 1, 0, 0.00205059, 1.44057, 0.112672 )
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 332.0
@@ -110,8 +169,8 @@ margin_right = 278.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 30, 30 )
 custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
 
 [node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/GridContainer"]
 margin_top = 37.0
@@ -126,8 +185,13 @@ margin_right = 278.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 30, 30 )
 custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+autoplay = true
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/GridContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/GridContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 

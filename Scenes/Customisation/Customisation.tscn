@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Characters/Players/Armatures/Armature-M.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Materials/DarkWood.material" type="Material" id=2]
 [ext_resource path="res://Materials/MetalDark.material" type="Material" id=3]
 [ext_resource path="res://Scenes/Customisation/CustomisationUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Customisation/CharacterCustomisation.gd" type="Script" id=5]
+[ext_resource path="res://SFX/interlude.ogg" type="AudioStream" id=6]
 
 [sub_resource type="CylinderMesh" id=1]
 
@@ -96,6 +97,11 @@ items = [ "Johnny", null, false, 0, null ]
 
 [node name="ArmatureM" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+autoplay = true
 [connection signal="item_selected" from="CustomisationUI/Controls/CharacterSelect" to="." method="_on_CharacterSelect_item_selected"]
 [connection signal="pressed" from="CustomisationUI/Controls/HBoxContainer/LeftButton" to="." method="change_material" binds= [ "Left" ]]
 [connection signal="pressed" from="CustomisationUI/Controls/HBoxContainer/RightButton" to="." method="change_material" binds= [ "Right" ]]

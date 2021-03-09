@@ -1,0 +1,149 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://GUI/theme.tres" type="Theme" id=1]
+[ext_resource path="res://Fonts/Kenney Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/GUI/GFX/blue_button06.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/GUI/GFX/blue_boxCheckmark.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/GUI/IntroScreen/IntroScreen.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Characters/Players/Armatures/Armature-M.tscn" type="PackedScene" id=6]
+[ext_resource path="res://SFX/intro.ogg" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[node name="IntroScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0431373, 0.0431373, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+margin_left = 337.0
+margin_top = 70.0
+margin_right = 687.0
+margin_bottom = 530.0
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_right = 350.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 1 )
+text = "Food Fight"
+align = 1
+
+[node name="Label2" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 350.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 2 )
+text = "Music By Metaruka"
+align = 1
+
+[node name="ViewportContainer" type="ViewportContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 350.0
+margin_bottom = 392.0
+rect_min_size = Vector2( 300, 300 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" type="Camera" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 0.998882, -0.0472808, 0, 0.0472808, 0.998882, 0, 0.777789, 2.13982 )
+current = true
+
+[node name="Armature" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer/Viewport" instance=ExtResource( 6 )]
+transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0.16353, 0, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer/Viewport"]
+transform = Transform( 0.801567, 0, -0.597905, 0, 1, 0, 0.597905, 0, 0.801567, -2, 1.61365, 3 )
+light_color = Color( 0.996078, 1, 0.67451, 1 )
+light_energy = 5.0
+
+[node name="SpotLight3" type="SpotLight" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer/Viewport"]
+transform = Transform( -0.999233, 0, -0.0391551, 0.0205865, 0.850628, -0.525365, 0.0333064, -0.525769, -0.849975, -0.139178, -0.48861, -3.46587 )
+light_color = Color( 0.996078, 1, 0.67451, 1 )
+light_energy = 2.0
+
+[node name="SpotLight2" type="SpotLight" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer/Viewport"]
+transform = Transform( 0.694184, 0.253494, 0.673684, 0.193632, 0.835669, -0.51397, -0.693265, 0.487236, 0.531023, 2.86523, -0.244397, 2.32326 )
+light_color = Color( 0.580392, 0.815686, 1, 1 )
+light_energy = 5.0
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 396.0
+margin_right = 350.0
+margin_bottom = 460.0
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 126.0
+margin_right = 224.0
+margin_bottom = 64.0
+columns = 2
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer/GridContainer"]
+margin_top = 3.0
+margin_right = 64.0
+margin_bottom = 27.0
+text = "Play"
+
+[node name="PlayButton" type="TextureButton" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer/GridContainer"]
+margin_left = 68.0
+margin_right = 98.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="Label2" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer/GridContainer"]
+margin_top = 37.0
+margin_right = 64.0
+margin_bottom = 61.0
+text = "Quit"
+
+[node name="QuitButton" type="TextureButton" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer/GridContainer"]
+margin_left = 68.0
+margin_top = 34.0
+margin_right = 98.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 30, 30 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -10.0
+autoplay = true
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/CenterContainer/GridContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/CenterContainer/GridContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

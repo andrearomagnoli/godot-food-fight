@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Food Fight"
-run/main_scene="res://Level/Level1.tscn"
+run/main_scene="res://Scenes/GUI/IntroScreen/IntroScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
