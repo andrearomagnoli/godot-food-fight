@@ -7,3 +7,5 @@
 
 [node name="Armature" parent="." index="10" instance=ExtResource( 3 )]
 transform = Transform( 0.26, 0, 0, 0, -1.1365e-08, -0.26, 0, 0.26, -1.1365e-08, 0, 0, 0 )
+
+[editable path="Armature"]

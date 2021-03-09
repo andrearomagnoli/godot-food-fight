@@ -23,6 +23,8 @@ export var max_ammo = 5
 func _ready():
 	character_type = CHARACTER_TYPE.player
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if Customisation.Player_materials != null:
+		$Armature/Mesh.set_surface_material(0, Customisation.Player_materials)
 	update_lives()
 
 

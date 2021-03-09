@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 file_grabber="*res://Utility/file_grabber.gd"
+Customisation="*res://Scenes/Customisation/Customisation.gd"
 
 [display]
 

@@ -452,9 +452,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.403, -30 )
 [node name="BystanderSpawner2" parent="Spawners" index="1" instance=ExtResource( 6 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -0.5, 1.403, 27 )
 
-[node name="Player" parent="." index="6"]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -13, 0.25, -2 )
-
 [node name="Robot" parent="Robots" index="0" instance=ExtResource( 7 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 12.5475, 0, -5.52724 )
 
@@ -468,6 +465,9 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 15.7161
 [node name="TranslationAnimation" parent="Robots/Robot2" index="6"]
 autoplay = "Movement"
 anims/Movement = SubResource( 3 )
+
+[node name="PlayerStart" parent="." index="7"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -15.717, -0.25, -2.722 )
 
 [node name="RefillArea" parent="." index="8" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.99732, 0.8, -2.65637 )

@@ -4,7 +4,7 @@
 [ext_resource path="res://Materials/DarkWood.material" type="Material" id=2]
 [ext_resource path="res://Materials/MetalDark.material" type="Material" id=3]
 [ext_resource path="res://Scenes/Customisation/CustomisationUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Customisation/Customisation.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Customisation/CharacterCustomisation.gd" type="Script" id=5]
 
 [sub_resource type="CylinderMesh" id=1]
 
@@ -90,6 +90,9 @@ transform = Transform( 1, 0, 0, 0, 0.993776, -0.1114, 0, 0.1114, 0.993776, 0, 0.
 current = true
 
 [node name="CustomisationUI" parent="." instance=ExtResource( 4 )]
+
+[node name="CharacterSelect" parent="CustomisationUI/Controls" index="1"]
+items = [ "Johnny", null, false, 0, null ]
 
 [node name="ArmatureM" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 0, 0, 0 )
