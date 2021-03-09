@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=2]
+
+[sub_resource type="AnimationNodeBlend3" id=1]
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeBlend2" id=3]
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Working"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "Punch"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Run"
+
+[sub_resource type="AnimationNodeBlendTree" id=7]
+graph_offset = Vector2( 89.8734, -28.0733 )
+nodes/Action/node = SubResource( 1 )
+nodes/Action/position = Vector2( 1000, 20 )
+nodes/Idle/node = SubResource( 2 )
+nodes/Idle/position = Vector2( 360, -20 )
+nodes/Move/node = SubResource( 3 )
+nodes/Move/position = Vector2( 580, 20 )
+nodes/Pickup/node = SubResource( 4 )
+nodes/Pickup/position = Vector2( 780, 300 )
+nodes/Punch/node = SubResource( 5 )
+nodes/Punch/position = Vector2( 780, -180 )
+nodes/Run/node = SubResource( 6 )
+nodes/Run/position = Vector2( 360, 100 )
+nodes/output/position = Vector2( 1220, 60 )
+node_connections = [ "output", 0, "Action", "Move", 0, "Idle", "Move", 1, "Run", "Action", 0, "Punch", "Action", 1, "Move", "Action", 2, "Pickup" ]
+
+[node name="AnimationTree" type="AnimationTree"]
+tree_root = SubResource( 7 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Action/blend_amount = 0.0
+parameters/Move/blend_amount = 0.0

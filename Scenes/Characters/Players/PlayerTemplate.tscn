@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://SFX/harp-glissando-up.wav" type="AudioStream" id=2]
+[ext_resource path="res://Scenes/Characters/Character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Characters/Players/Player.gd" type="Script" id=5]
+
+[node name="Player" instance=ExtResource( 3 )]
+collision_layer = 2
+collision_mask = 31
+script = ExtResource( 5 )
+
+[node name="MeshInstance" parent="." index="0"]
+visible = false
+
+[node name="Camera" type="Camera" parent="." index="2"]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 2.75843, -5 )
+environment = ExtResource( 1 )
+doppler_tracking = 2
+
+[node name="RefillTimer" type="Timer" parent="." index="5"]
+one_shot = true
+
+[node name="FireTImer" type="Timer" parent="." index="6"]
+wait_time = 0.2
+one_shot = true
+
+[node name="GUI" parent="." index="7" instance=ExtResource( 4 )]
+
+[node name="Harp" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource( 2 )
+volume_db = -10.0
+[connection signal="timeout" from="RefillTimer" to="." method="_on_RefillTimer_timeout"]
+[connection signal="timeout" from="FireTImer" to="." method="_on_FireTImer_timeout"]
